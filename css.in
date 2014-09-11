@@ -1,0 +1,11 @@
+
+#define ADD_VENDOR_PREFIXES(rulename, text) \
+	-webkit-rulename: text; \
+	-moz-rulename: text; \
+	-ms-rulename: text; \
+	-o-rulename: text; \
+	rulename: text
+
+#define transform(text)     ADD_VENDOR_PREFIXES(transform, text)
+#define transition(text)    ADD_VENDOR_PREFIXES(transition, text)
+#define border_radius(text) ADD_VENDOR_PREFIXES(border-radius, text)

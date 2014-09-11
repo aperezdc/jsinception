@@ -5,26 +5,32 @@
  * Distributed under terms of the MIT license.
  */
 
-#impress {
+#include "css.in"
+
+#define JSCONF #E10079
+#define JSCONF_DARKER #990052
+#define JSCONF_FAINT #E1C6D5
+#define JSCONF_US_BG #F0DB4F
+#define JSCONF_US_FG #323330
+#define JSCONF_US_HI #B3371A
+#define JSCONF_US_BG_FAINT #FFFCE6
+
+$impress {
 	font-family: Overpass, sans-serif;
 	color: #323330;
 }
 
 h1, h2, h3 {
-	color: #B3371A;
+	color: JSCONF;
 	line-height: 80%;
 	padding-bottom: 0;
-	margin-bottom: 15px;:w
-
+	margin-bottom: 15px;
 }
 
 a {
-	color: #990052;
+	color: JSCONF_DARKER;
 	text-decoration: none;
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	-o-transition: 0.5s;
-	transition: 0.5s;
+	transition (0.5s);
 }
 
 a:hover {
@@ -32,9 +38,67 @@ a:hover {
 	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.35);
 }
 
+table, table td, table th, table tr {
+	padding: 0;
+	margin: 0;
+}
+
+$impress table {
+	margin: 50px auto;
+	line-height: 30%;
+	border-top: 1px solid JSCONF_US_FG;
+	border-bottom: 1px solid JSCONF_US_FG;
+}
+
+$impress table tr:nth-child(even) td {
+	background-color: JSCONF_US_BG_FAINT;
+}
+
+$impress table th {
+	color: JSCONF_US_FG;
+	background-color: JSCONF_US_BG;
+}
+
+$impress table td {
+	border-top: 1px solid JSCONF_US_FG;
+}
+
+$impress table th,
+$impress table td {
+	padding: 0 50px;
+}
+
+$impress table.align-data-right td {
+	text-align: right;
+}
+
+$impress table.align-data-right.legend-first-column td:first-child {
+	text-align: left;
+	font-weight: bold;
+}
+
+$impress div.footnote {
+	bottom: 0;
+	font-size: 65%;
+}
+
+$impress a.footnoteref {
+	vertical-align: super;
+	font-size: 50%;
+}
+
+$impress div.footnote a.footnotereturn {
+	float: left;
+	display: block;
+	margin-right: 0.5em;
+	border-top: 1px solid JSCONF_DARKER;
+	padding-right: 70px;
+	margin-right: -60px;
+}
+
 div.step {
 	opacity: 0.25;
-	transition: opacity 0.5s linear;
+	transition (opacity 0.5s linear);
 	font-size: 200%;
 }
 
@@ -47,9 +111,14 @@ div.step.past .reveal {
 	opacity: 1;
 }
 
+h1$kloc {
+	text-align: center;
+}
+
 .centerbox {
 	text-align: center;
-	background-color: #fef0f0;
+	color: JSCONF_US_FG;
+	background-color: JSCONF_US_BG;
 	border-radius: 7px;
 	padding: 1em;
 }

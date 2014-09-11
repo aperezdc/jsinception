@@ -74,11 +74,37 @@ In comparison with C/C++, JavaScript provides:
 
 ----
 
-:data-x: 800
+:data-x: 1100
 :data-y: -400
 :data-scale: 1
 
-Slide +2
+kLOC [#]_
+=========
 
+.. class:: align-data-right legend-first-column
+
+============= ===== == ===
+Engine        Total JS %
+============= ===== == ===
+SpiderMonkey    457 18 3.9
+JSC             269  1 0.3
+V8              532 23 4.3
+============= ===== == ===
+
+.. [#] Measured with `CLOC <http://cloc.sf.net>`__, excluding test
+       suites, benchmarks and other tools.
+
+----
+
+:data-y: r800
+
+Slide +1
+========
+
+----
+
+:data-x: 0
+:data-y: 0
+:data-scale: 4
 
 .. :data-scale: 0.025
