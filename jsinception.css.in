@@ -51,8 +51,16 @@ table, table td, table th, table tr {
 	margin: 0;
 }
 
-dt, dd {
+
+div.step.credits dt,
+div.step.credits dd {
 	line-height: 30%;
+	font-size: 80%;
+}
+
+div.step.credits dd {
+	line-height: 100%;
+	font-size: 60%;
 }
 
 dt {

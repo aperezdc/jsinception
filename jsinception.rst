@@ -340,15 +340,25 @@ Takeaways
 
 :data-x: 0
 :data-y: -2400
+:class: credits
 
-Other credits
-=============
+Thanks
+======
 
 Music
   AC Customusic (Hopefully Public Domain)
 
+Overpass Font
+  http://fedoraproject.org/wiki/Overpass_Fonts
+
+Oswald Font
+  http://oswaldfont.com
+
 Pixel Art
   `Héctor Bometón <http://www.mierdecitas.com>`__
+
+V8 Logo
+  http://hamcha.deviantart.com/art/Google-V8-Logo-Vector-324846149
 
 ----
 
