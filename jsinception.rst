@@ -10,6 +10,7 @@
   <div class="jslogo"><div class="jstext">JS</div></div>
   <div class="jslogo-right">Inception<br/>
     <div>JSConf EU 2014</div>
+    <!-- <a href="http://perezdecastro.org/2014/js-inception-v8.html">perezdecastro.org/2014/js-inception-v8.html</a> -->
   </div>
 
 .. note::
@@ -259,12 +260,29 @@ What's missing of ES6?
 
 .. note::
 
-  * Introduces ``thisArg``.
-  * Handles ``thisArg`` being not passed (undedefined).
+  * To be completely spec-compliant, we need to handle the second
+    ``thisArg`` parameter.
 
 ----
 
-:data-y: r450
+:data-z: 200
+:data-x: r-500
+:data-y: r-100
+:data-rotate-y: 45
+
+.. raw:: html
+
+  <div class="demotime beatles">
+    <div>Showtime!</div>
+    <audio src="livecoding.mp3" controls>
+  </div>
+
+----
+
+:data-z: -400
+:data-x: r1800
+:data-y: r-900
+:data-rotate-y: 0
 
 .. code:: javascript
 
@@ -278,6 +296,13 @@ What's missing of ES6?
   Int8Array.prototype.forEach = GenericForEach;
   Int16Array.prototype.forEach = GenericForEach;
   // …
+
+.. note::
+
+  Now, we may be tempted to go ahead and implement the same function for
+  the other variants of typed arrays, maybe even reusing the same actual
+  function. But beware: doing ths will defeat the type inference done by
+  the JIT compiler.
 
 ----
 
@@ -296,6 +321,10 @@ What's missing of ES6?
 
 .. note::
 
+  So we would rather have a copy of the function for each one of the cases,
+  to make sure that the types of the elements that each version handles are
+  always the same.
+
   * Inferred types are always the same:
 
     - Better for the JIT.
@@ -304,26 +333,77 @@ What's missing of ES6?
   * V8 has a macro expansion mechanism used to generate variants of the same
     function. It is used for the typed arrays impleentation.
 
-
 ----
 
-:data-rotate-y: 90
+:data-z: -100
+:data-x: r-400
+:data-y: r-100
+:data-rotate-y: 45
 
 .. raw:: html
 
-  <div class="demotime beatles">
-    <div>Showtime!</div>
+  <div class="demotime lebowski">
+    <div>Ouch!</div>
     <audio src="livecoding.mp3" controls>
   </div>
 
+.. note::
+
+  So let's go back to the code and do this properly.
+
 ----
 
+:data-z: 0
+:data-y: r650
+:data-x: r200
 :data-rotate-y: 0
 
+Actual V8 code
+==============
 
-``d8 --allow-natives-syntax``
+.. code:: javascript
+
+  // …
+  var stepping = DEBUG_IS_ACTIVE &&
+     %DebugCallbackSupportsStepping(f);
+  for (var i = 0; i < length; i++) {
+    if (i in array) {
+      var element = array[i];
+      // Prepare break slots for debugger step in.
+      if (stepping) %DebugPrepareStepInIfStepping(f);
+      %_CallFunction(receiver, element, i, array, f);
+    }
+  }
 
 ----
+
+:data-x: r0
+:data-y: r600
+
+Odds & Ends
+===========
+
+%Native()
+  Call into ``src/runtime.cc`` functions! 😨
+
+  ``% d8 --allow-natives-syntax``
+
+Helpers
+  ``src/v8natives.js``
+
+  ``src/runtime.js``
+
+  ``src/macros.py``
+
+.. note::
+
+  * A parser switch controls the availability of natives — Yes, this is
+    actually shoehorned into the parser.
+  * JavaScript code implementing the runtime library uses the helper
+    functions defined in those files.
+
+----
+
 
 Takeaways
 =========
@@ -338,8 +418,20 @@ Takeaways
 
 ----
 
-:data-x: 0
-:data-y: -2400
+:data-x: 1200
+:data-y: 2000
+
+.. raw:: html
+
+  <div class="demotime">
+    <div>Thanks for watching!</div>
+  </div>
+
+
+----
+
+:data-x: 1400
+:data-y: 1300
 :class: credits
 
 Thanks
@@ -354,8 +446,12 @@ Overpass Font
 Oswald Font
   http://oswaldfont.com
 
+Camingo Mono Font
+  http://www.janfromm.de
+
 Pixel Art
-  `Héctor Bometón <http://www.mierdecitas.com>`__
+  `Héctor Bometón <http://www.mierdecitas.com>`__ –
+  http://mierdecitas.tumblr.com
 
 V8 Logo
   http://hamcha.deviantart.com/art/Google-V8-Logo-Vector-324846149
@@ -363,7 +459,7 @@ V8 Logo
 ----
 
 :data-x: 0
-:data-y: 0
+:data-y: 850
 :data-scale: 4
 :data-rotate-y: 0
 
