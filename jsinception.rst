@@ -427,6 +427,11 @@ Takeaways
     <div>Thanks for watching!</div>
   </div>
 
+.. class:: center
+
+  `perezdecastro.org/jsinception <http://perezdecastro.org/jsinception/>`__
+  `github.com/aperezdc/jsinception <https://github.com/aperezdc/jsinception/>`__
+
 
 ----
 
@@ -463,4 +468,3 @@ V8 Logo
 :data-scale: 4
 :data-rotate-y: 0
 
-.. :data-scale: 0.025
