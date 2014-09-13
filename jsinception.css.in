@@ -14,10 +14,11 @@
 #define JSCONF_US_FG #323330
 #define JSCONF_US_HI #B3371A
 #define JSCONF_US_BG_FAINT #FFFCE6
+#define SHADOW_COLOR rgba(0, 0, 0, 0.25)
 
-$impress {
-	font-family: Overpass, sans-serif;
-	color: #323330;
+body {
+	font-family: Overpass, Lato, sans-serif;
+	color: JSCONF_US_FG;
 }
 
 h1, h2, h3 {
@@ -45,6 +46,15 @@ code, pre, tt {
 table, table td, table th, table tr {
 	padding: 0;
 	margin: 0;
+}
+
+dt, dd {
+	line-height: 30%;
+}
+
+dt {
+	margin-top: 1.5em;
+	color: JSCONF;
 }
 
 $impress table {
@@ -115,7 +125,7 @@ div.step.past .reveal {
 	opacity: 1;
 }
 
-h1$kloc {
+$kloc {
 	text-align: center;
 }
 
@@ -149,6 +159,139 @@ div.jslogo {
 	height: 340px;
 	color: #fff;
 	background-color: #E10079;
+}
+
+$logos-plus,
+$igalia-logo,
+$avatar,
+$finland {
+	position: absolute;
+	border: 3px solid #fff;
+	box_shadow (0 3px 5px 2px SHADOW_COLOR);
+}
+
+$avatar,
+$finland {
+	width: 360px;
+	height: 360px;
+	border_radius (180px);
+}
+
+$avatar {
+	background: url(images/avatar.jpg) 50% 50%;
+	background-size: 360px 360px;
+}
+
+$avatar a {
+	font-size: 85%;
+	position: absolute;
+	left: 80px;
+	bottom: -60px;
+	width: 200px;
+	display: block;
+	text-align: center;
+}
+
+div.step.present $avatar {
+	animation (avatar-slides 20s infinite);
+}
+
+keyframes (avatar-slides,
+	0% { }
+	33% { 
+		background: url(images/avatar2.jpg) 50% 50%;
+		background-size: 360px 360px;
+	}
+	66% {
+		background: url(images/avatar3.jpg) 50% 50%;
+		background-size: 360px 360px;
+	}
+	100% { }
+)
+
+$finland {
+	top: 0;
+	left: 400px;
+	background: url(images/finland.jpg) 50% 50%;
+	background-size: 540px 360px;
+}
+
+div.step.present $finland {
+	animation (finland-slides 40s infinite);
+}
+
+keyframes (finland-slides,
+	0% { }
+	25% {
+		background-position: 100% 100%;
+		background-size: 640px 427px;
+	}
+	50% {
+		background: url(images/finland2.jpg) 30% 0;
+		background-size: 640px 426px;
+	}
+	75% {
+		background: url(images/finland3.jpg) 20% 100%;
+		background-size: 704px 527px;
+	}
+	100% { }
+)
+
+$igalia-logo {
+	left: 280px;
+	top: 260px;
+	top: 20px;
+	background: #fff url(images/logo-igalia.png) 0 0 no-repeat;
+	width: 200px;
+	height: 64px;
+	border_radius (32px);
+}
+
+$bloomberg-logo {
+	position: absolute;
+	background: #fff url(images/logo-bloomberg.svg) 50% 50% no-repeat;
+	background-size: 90% 90%;
+	top: -65px;
+	left: 255px;
+	width: 250px;
+	height: 50px;
+	opacity: 0;
+	border_radius (25px);
+	transition (opacity 1s linear 2s);
+}
+
+$logos-plus {
+	background: JSCONF;
+	font-size: 40px;
+	color: #fff;
+	height: 40px;
+	width: 40px;
+	overflow: hidden;
+	top: -12px;
+	left: 360px;
+	text-align: center;
+	line-height: 40px;
+	font-weight: bold;
+	border: none;
+	opacity: 0;
+	border_radius (22px);
+	box_shadow (none);
+	transition (opacity 1s linear 2s);
+}
+
+div.step.present $logos-plus,
+div.step.present $bloomberg-logo {
+	opacity: 1;
+}
+
+$v8-logo {
+	position: absolute;
+	background: url(images/logo-v8.svg) 50% 50% no-repeat;
+	background-size: 75% 75%;
+	height: 360px;
+	width: 360px;
+	top: -390px;
+	left: 205px;
 }
 
 div.jslogo > div.jstext {
@@ -210,10 +353,35 @@ div.jslogo.bigger > div.js-in {
 	width: 200px;
 	height: 200px;
 	text-align: center;
-	border-radius: 100px;
+	border_radius (100px);
 	background-color: rgba(255, 255, 255, 0.65);
-	color: #E10079;
+	color: JSCONF;
 	font-size: 170px;
 	line-height: 200px;
 	text-align: center;
+}
+
+div.demotime {
+	background: url(images/breakingbad.gif);
+	width: 800px;
+	height: 579px;
+	text-align: center;
+}
+
+div.demotime audio {
+	position: absolute;
+	bottom: 0;
+	left: 250px;
+}
+
+div.demotime div {
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	transform(rotateZ(-11deg));
+	font-family: 'Oswald Regular', 'League Gothic', sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 100px;
+	text_shadow (5px 5px 1px SHADOW_COLOR);
 }

@@ -1,11 +1,20 @@
 
-#define ADD_VENDOR_PREFIXES(rulename, text) \
-	-webkit-rulename: text; \
-	-moz-rulename: text; \
-	-ms-rulename: text; \
-	-o-rulename: text; \
-	rulename: text
+#define ADD_VENDOR_PREFIXES(_rulename, _contents) \
+	-webkit-_rulename: _contents; \
+	-moz-_rulename: _contents; \
+	-ms-_rulename: _contents; \
+	-o-_rulename: _contents; \
+	_rulename: _contents
 
-#define transform(text)     ADD_VENDOR_PREFIXES(transform, text)
-#define transition(text)    ADD_VENDOR_PREFIXES(transition, text)
-#define border_radius(text) ADD_VENDOR_PREFIXES(border-radius, text)
+#define transform(_text)     ADD_VENDOR_PREFIXES(transform, _text)
+#define transition(_text)    ADD_VENDOR_PREFIXES(transition, _text)
+#define border_radius(_text) ADD_VENDOR_PREFIXES(border-radius, _text)
+#define text_shadow(_text)   ADD_VENDOR_PREFIXES(text-shadow, _text)
+#define box_shadow(_text)    ADD_VENDOR_PREFIXES(box-shadow, _text)
+#define animation(_text)     ADD_VENDOR_PREFIXES(animation, _text)
+
+#define keyframes(_name, _text) \
+	@-webkit-keyframes _name { _text } \
+	@-moz-keyframes _name { _text } \
+	@-o-keyframes _name { _text } \
+	@keyframes _name { _text }
