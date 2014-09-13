@@ -129,6 +129,10 @@ $kloc {
 	text-align: center;
 }
 
+.center {
+	text-align: center;
+}
+
 .centerbox {
 	text-align: center;
 	color: JSCONF_US_FG;
@@ -137,11 +141,8 @@ $kloc {
 	padding: 1em;
 }
 
-div.step.pre-title {
-	opacity: 0.1;
-}
-
-div.step.title {
+body.impress-on-step-2 div.step.pre-title,
+body.impress-on-step-1 div.step.title {
 	opacity: 0;
 }
 
@@ -366,12 +367,29 @@ div.demotime {
 	width: 800px;
 	height: 579px;
 	text-align: center;
+	margin: 0 auto;
+}
+
+div.demotime.beatles {
+	background: url(images/beatles.gif) 50% 50% no-repeat;
+	width: 500px;
+	height: 450px;
+}
+
+div.demotime.beatles div {
+	left: 30px;
 }
 
 div.demotime audio {
 	position: absolute;
 	bottom: 0;
+	width: 300px;
 	left: 250px;
+	opacity: 0.25;
+}
+
+div.demotime audio:hover {
+	opacity: 1;
 }
 
 div.demotime div {

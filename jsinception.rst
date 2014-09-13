@@ -3,7 +3,30 @@
 
 ----
 
-:class: noborder pre-title
+:class: pre-title
+
+.. raw:: html
+
+  <div class="jslogo"><div class="jstext">JS</div></div>
+  <div class="jslogo-right">Inception<br/>
+    <div>JSConf EU 2014</div>
+  </div>
+
+.. note::
+
+  Welcome everybody, it is always a pleasure to travel to Berlin, more if it
+  is for attending JSConf EU — gotta love such a vibrant community. This
+  is my second year attending, and this time it is not just a pleasure, but
+  also a great honour to be in this side of the room, as a speaker.
+
+  First of all, let me tell you that I have not yet watched Inception, the
+  movie. Any possible references to the movie are plain coincidences —
+  I just linked how the “JS: Inception” moniker sounds.
+
+----
+
+:data-y: r220
+:class: title
 
 .. raw:: html
 
@@ -13,22 +36,21 @@
     <div class="js-in">in</div>
   </div>
 
-----
+.. note::
 
-:data-y: r-220
-:class: noborder title
+  Truth is, I have been wanting to use this “JS-in-JS” logo logo for a
+  while, and I could not think of any other title that would fit better.
 
-.. raw:: html
+  By the way, after attending CSSConf yesterday, which was lovely, I felt
+  the need to go back to the hotel and redo it using only ``<div>``\s and
+  CSS.
 
-  <div class="jslogo"><div class="jstext">JS</div></div>
-  <div class="jslogo-right">Inception<br/>
-    <div>JSConf EU 2014</div>
-  </div>
+  But before we go into details…
 
 ----
 
 :data-x: r0
-:data-y: r-800
+:data-y: r-900
 
 .. raw:: html
 
@@ -41,86 +63,165 @@
   <div id="bloomberg-logo"></div>
   <div id="logos-plus">+</div>
   <div id="v8-logo"></div>
-  <!--
-  <div class="jslogo-right">
-    <a href="mailto:aperez@igalia.com">aperez@igalia.com</a>
-    <a href="http://perezdecastro.org">perezdecastro.org</a>
-    <a href="https://twitter.com/aperezdc">@aperezdc</a>
-  </div>
-  -->
+
+.. note::
+
+  …let me introduce myself.
+
+  My name is Adrián, I am originally from Spain but currently I live in
+  Helsinki, and I *actually* do enjoy the snowy winters. But if there is
+  something I like is working on Free Software and getting into trouble.
+
+  The first got me into Igalia, six years ago, where I work at the
+  compilers team. The second got me into virtual machines.
+
+  We are collaborating with Bloomberg on two fronts:
+  
+  1. Bringing EcmaScript 6 features to JavaScript engines.
+  2. Bringing modern layout support to web engines, like CSS Grid Layout.
+       
+  During Rachel Andrew's talk about Grid Layout during CSSConf, I was
+  checking the reactions on Twitter, and it was amazing to see so many
+  positive comments. You can already use Grid now, and it would not have
+  been possible without Bloomberg's sponsoring.
 
 ----
 
 :data-x: r-900
-:data-rotate: 40
+:data-rotate-z: 40
 
-What this is *not* about
-========================
+Agenda
+======
+
+.. code:: javascript
+
+  var i = new Inception();
+  var knowledge = i.learn();
+
+  while (i.secondsElapsed < 20 * 60) {
+    knowledge.liveCoding();
+    knowledge.refine(i);
+  }
+
+
+.. note::
+
+  So, what's in for today?
+
+  1. I will explain what the “Inception” thing is about, then
+  2. the main part of the talk will actually be implementing,
+     a small feature from the EcmaScript 6 specification into
+     V8. And this is going to happen live, on stage.
+
+----
+
+:data-x: r-50
+:data-y: r450
+
+Inception is not
+================
 
 * Transpiling (e.g. Traceur).
 * Implementing a JavaScript engine.
 
+.. note::
+
+  To make things clear, let me first tell you what this is **not** about:
+
+  * How many people here knows about Traceur, or what a transpiler is?
+    Well I will **not** be talking about that today.
+  * Also, I will **not** be talking about implementing a JavaScript engine.
+
+
 ----
 
-:data-x: r30
-:data-y: r500
-
-So, then?
-=========
+:data-y: r350
 
 .. class:: reveal centerbox
 
-Implementing features of a JavaScript engine **using JavaScript**.
-
-----
-
-:data-x: r-1100
-:data-y: r-400
-:data-rotate: 0
-:data-scale: 2
-
-Rationale
-=========
-
-In comparison with C/C++, JavaScript provides:
-
-* More expressiveness.
-* Faster development.
-* Fame and glory!
+Implementing **features** of existing JavaScript engines **using
+JavaScript**.
 
 .. note::
 
-   * Faster build times
-   * Simpler
+  Once the language is implemented, there is nothing that prevents to use
+  JavaScript itself from being useful to implement parts of the language
+  specification. The same as the standard C/C++ library is written in C/C++,
+  and built.
+
+  There are a number of reasons to do this, some of them are quite clear:
+
+  * JavaScript is more expressive than C++.
+  * Faster development: compile-test-debug cycles are shorter.
+  * Just *because*.
+
+  But there are also some not-so-obvious reasons to do this:
+
+  * Modern JIT compilers can generate code as good as our hand made C/C++.
+    - Sometimes even faster: no calls into the C/C++ runtime.
+  * Fame and glory! (Become an engines hacker yourselves).
+  * Just *because*.
 
 ----
 
-:data-x: 1100
-:data-y: -400
-:data-scale: 1
+:data-x: r50
+:data-y: r550
+:data-rotate-z: 20
+:data-scale: 0.75
 
 kLOC [#]_
 =========
 
 .. class:: align-data-right legend-first-column
 
-============= ===== == ===
-Engine        Total JS %
-============= ===== == ===
-SpiderMonkey    457 18 3.9
-JSC             269  1 0.3
-V8              532 23 4.3
-============= ===== == ===
+============== ===== == ===
+Engine         Total JS %
+============== ===== == ===
+JavaScriptCore   269  1 0.3
+SpiderMonkey     457 18 3.9
+V8               532 23 4.3
+============== ===== == ===
 
 .. [#] Measured with `CLOC <http://cloc.sf.net>`__, excluding test
        suites, benchmarks and other tools.
 
+.. note::
+
+  To give an idea of how much major engines are using JavaScript, this is
+  the current ranking as of yesterday. JavaScriptCore is the one using less
+  JavaScript: only about a thousand lines. Up next are SpiderMonkey with
+  eighteen thousand lines, and V8 with twenty-three thousand lines.
+
+  The line counts are code excluding everything that is not part of the
+  implementation: test suites, helper tools and so are not adding up to
+  these numbers.
+
 ----
 
-:data-y: r800
+:data-rotate-z: 0
+:data-y: r450
 
-Implementing ``forEach()``
-==========================
+What's missing of ES6?
+======================
+
+.. class:: center
+
+(in V8)
+
+.. note::
+
+  Most of the runtime features that are good to be implemented using
+  JavaScript are already in V8. Even most of the EcmaScript 6 ones.
+
+  There methods missing in typed arrays which are good candidatates.
+
+----
+
+:data-y: r600
+
+
+``Int{x}Array.forEach()``
+=========================
 
 .. code:: javascript
 
@@ -137,7 +238,7 @@ Implementing ``forEach()``
 
 ----
 
-:data-y: r400
+:data-y: r350
 :data-x: r0
 
 .. code:: javascript
@@ -158,7 +259,6 @@ Implementing ``forEach()``
 ----
 
 :data-y: r450
-:data-x: r0
 
 .. code:: javascript
 
@@ -205,8 +305,8 @@ Implementing ``forEach()``
 
 .. raw:: html
 
-  <div class="demotime">
-    <div>It's demo time!</div>
+  <div class="demotime beatles">
+    <div>Showtime!</div>
     <audio src="livecoding.mp3" controls>
   </div>
 
