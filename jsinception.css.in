@@ -20,6 +20,8 @@
 body {
 	font-family: Overpass, Lato, sans-serif;
 	color: JSCONF_US_FG;
+	font-feature-settings: "kern" on, "liga" on;
+	font-kerning: normal;
 }
 
 h1, h2, h3 {
