@@ -1,9 +1,14 @@
+#ifndef CSS_IN_INCLUDED
+#define CSS_IN_INCLUDED
+
+#define _X_STRINGIFY(__str) #__str
+#define STRINGIFY(_str) _X_STRINGIFY(_str)
 
 #define ADD_VENDOR_PREFIXES(_rulename, _contents) \
-	-webkit-_rulename: _contents; \
-	-moz-_rulename: _contents; \
-	-ms-_rulename: _contents; \
-	-o-_rulename: _contents; \
+	-webkit-_rulename: _contents; $$ \
+	-moz-_rulename: _contents; $$ \
+	-ms-_rulename: _contents; $$ \
+	-o-_rulename: _contents; $$ \
 	_rulename: _contents
 
 #define transform(_text)     ADD_VENDOR_PREFIXES(transform, _text)
@@ -14,7 +19,20 @@
 #define animation(_text)     ADD_VENDOR_PREFIXES(animation, _text)
 
 #define keyframes(_name, _text) \
-	@-webkit-keyframes _name { _text } \
-	@-moz-keyframes _name { _text } \
-	@-o-keyframes _name { _text } \
-	@keyframes _name { _text }
+	@-webkit-keyframes _name { $$ _text }$$\
+	@-moz-keyframes _name { $$ _text }$$\
+	@-o-keyframes _name { $$ _text }$$\
+	@keyframes _name { $$ _text }
+
+#define local_font(_name) \
+	local(STRINGIFY(_name), STRINGIFY(_name-Regular))
+
+#define web_font(_name, _basename) \
+	font-family: STRINGIFY(_name); $$ \
+	src: url(_basename.eot), $$ \
+	     url(_basename.eot?$iefix) format("embedded-opentype"), $$ \
+	     url(_basename.woff) format("woff"), $$ \
+	     url(_basename.ttf) format("truetype"), $$ \
+	     url(_basename.otf) format("opentype")
+
+#endif

@@ -9,7 +9,7 @@ out/livecoding.mp3: livecoding.mp3
 	cp -L $< $@
 
 jsinception.css: jsinception.css.in
-	cpp -nostdinc -w -P $< | sed 'y/$$/#/' > $@
+	./ccss $< > $@
 
 all_ttf := $(wildcard *.ttf)
 all_eot := $(patsubst %.ttf,%.eot,$(all_ttf))
@@ -25,6 +25,9 @@ fonts: fonts-woff fonts-eot
 .PHONY: fonts
 
 %.woff: %.ttf
+	sfnt2woff $<
+
+%.woff: %.otf
 	sfnt2woff $<
 
 %.eot: %.ttf

@@ -6,6 +6,7 @@
  */
 
 #include "css.in"
+#include "fonts.css.in"
 
 #define JSCONF #E10079
 #define JSCONF_DARKER #990052
