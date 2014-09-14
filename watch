@@ -1,0 +1,6 @@
+#! /bin/sh
+
+directory=$(pwd)
+
+watchman watch "${directory}"
+watchman -- trigger "${directory}" make jsinception.rst '*.in' 'images/*' -- bash -c make
