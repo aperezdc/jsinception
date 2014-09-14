@@ -1,3 +1,5 @@
 .*.sw[op]
 out/
 jsinception.css
+*.woff
+*.eot
