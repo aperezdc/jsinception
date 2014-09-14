@@ -162,7 +162,7 @@ $kloc {
 	padding: 1em;
 }
 
-body.impress-on-step-2 div.step.pre-title,
+div.step.pre-title,
 body.impress-on-step-1 div.step.title {
 	opacity: 0;
 }
@@ -304,6 +304,16 @@ $logos-plus {
 div.step.present $logos-plus,
 div.step.present $bloomberg-logo {
 	opacity: 1;
+}
+
+$v8buildjs {
+	background: url(v8buildjs.svg) -1130px -600px no-repeat;
+	background-size: 400% 400%;
+	height: 600px;
+}
+
+$building-v8 {
+	text-align: center;
 }
 
 $v8-logo {
@@ -460,4 +470,11 @@ div.demotime div {
 	font-weight: bold;
 	font-size: 100px;
 	text_shadow (5px 5px 1px SHADOW_COLOR);
+}
+
+$watching .center {
+	line-height: 120%;
+	font-size: 80%;
+	margin-top: -50px;
+	margin-bottom: 0;
 }

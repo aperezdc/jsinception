@@ -146,7 +146,7 @@ Not Happening
 
 .. class:: reveal centerbox
 
-Implementing **features** of existing JavaScript engines **using
+Implementing **features** into existing JavaScript engines, **using
 JavaScript**.
 
 .. note::
@@ -274,7 +274,9 @@ What's missing of ES6?
 
   <div class="demotime beatles">
     <div>Showtime!</div>
-    <audio src="livecoding.mp3" controls>
+    <audio preload="none" controls loop>
+      <source src="livecoding.mp3" type="audio/mp3">
+    </audio>
   </div>
 
 ----
@@ -344,7 +346,9 @@ What's missing of ES6?
 
   <div class="demotime lebowski">
     <div>Ouch!</div>
-    <audio src="livecoding.mp3" controls>
+    <audio preload="none" controls loop>
+      <source src="livecoding.mp3" type="audio/mp3">
+    </audio>
   </div>
 
 .. note::
@@ -404,6 +408,18 @@ Helpers
 
 ----
 
+:data-y: r-100
+:data-x: r700
+
+Building V8
+===========
+
+.. raw:: html
+
+  <div id="v8buildjs">
+  </div>
+
+----
 
 Takeaways
 =========
@@ -420,6 +436,7 @@ Takeaways
 
 :data-x: 1200
 :data-y: 2000
+:id: watching
 
 .. raw:: html
 
@@ -443,7 +460,7 @@ Thanks
 ======
 
 Music
-  AC Customusic (Hopefully Public Domain)
+  AC Customusic Sampler (Hopefully Public Domain)
 
 Overpass Font
   http://fedoraproject.org/wiki/Overpass_Fonts
@@ -465,6 +482,6 @@ V8 Logo
 
 :data-x: 0
 :data-y: 850
-:data-scale: 4
+:data-scale: 4.5
 :data-rotate-y: 0
 
