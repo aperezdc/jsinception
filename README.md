@@ -16,4 +16,21 @@ Build with:
 make
 ```
 
+## Credits
+
+* [Overpass Font](http://fedoraproject.org/wiki/Overpass_Fonts)
+
+* [Oswald Font](http://oswaldfont.com)
+
+* [Camingo Mono Font](http://www.janfromm.de)
+
+* Pixel Art by [Héctor Bometón](http://www.mierdecitas.com), used with
+  permission of the author.
+
+* [V8 SVG Logo](http://hamcha.deviantart.com/art/Google-V8-Logo-Vector-324846149):
+  CC-BY-SA.
+
+* **Music**:
+  AC Customusic Sampler (Hopefully Public Domain)
+
 
