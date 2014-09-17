@@ -1,0 +1,27 @@
+#include "css.in"
+
+@font-face {
+	font-style: normal;
+	font-weight: normal;
+	web_font (CamingoCode, CamingoCode-Regular);
+}
+@font-face {
+	font-style: normal;
+	font-weight: bold;
+	web_font (CamingoCode, CamingoCode-Bold);
+}
+@font-face {
+	font-style: normal;
+	font-weight: normal;
+	web_font (Overpass, Overpass_Regular);
+}
+@font-face {
+	font-style: normal;
+	font-weight: bold;
+	web_font (Overpass, Overpass_Bold);
+}
+@font-face {
+	font-style: italic;
+	font-weight: normal;
+	web_font (Oswald, Oswald-RegularItalic);
+}

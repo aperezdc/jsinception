@@ -8,21 +8,28 @@ out/livecoding.mp3: livecoding.mp3
 	mkdir -p $(dir $@)
 	cp -L $< $@
 
-jsinception.css: jsinception.css.in
+jsinception.css: jsinception.css.in print.css.in fonts.css.in css.in
 	./ccss $< > $@
 
 all_ttf := $(wildcard *.ttf)
 all_eot := $(patsubst %.ttf,%.eot,$(all_ttf))
+all_otf := $(patsubst %.ttf,%.otf,$(all_ttf))
 all_woff := $(patsubst %.ttf,%.woff,$(all_ttf))
 
 fonts-woff: $(all_woff)
 .PHONY: fonts-woff
 
+fonts-otf: $(all_otf)
+.PHONY: fonts-otf
+
 fonts-eot: $(all_eot)
 .PHONY: fonts-eot
 
-fonts: fonts-woff fonts-eot
+fonts: fonts-woff fonts-otf fonts-eot
 .PHONY: fonts
+
+%.otf: %.ttf
+	font2otf $<
 
 %.woff: %.ttf
 	sfnt2woff $<

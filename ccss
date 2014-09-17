@@ -1,0 +1,6 @@
+#! /bin/sh
+
+sed_program='s/\$\$/\n/g
+y/$/#/'
+
+cpp -w -P -nostdinc "$1" | sed "${sed_program}"
