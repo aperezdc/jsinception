@@ -8,10 +8,10 @@ out/livecoding.mp3: livecoding.mp3
 	mkdir -p $(dir $@)
 	cp -L $< $@
 
-jsinception.css: jsinception.css.in fonts.css.in css.in
+jsinception.css: jsinception.css.in fonts.css.in common.css.in css.in
 	./ccss $< > $@
 
-print.css: print.css.in fonts.css.in css.in
+print.css: print.css.in fonts.css.in common.css.in css.in
 	./ccss $< > $@
 
 all_ttf := $(wildcard *.ttf)

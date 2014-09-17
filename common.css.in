@@ -1,0 +1,117 @@
+#ifndef COMMON_CSS_IN
+#define COMMON_CSS_IN
+
+#define JSCONF #E10079
+#define JSCONF_DARKER #990052
+#define JSCONF_FAINT #E1C6D5
+#define JSCONF_US_BG #F0DB4F
+#define JSCONF_US_FG #323330
+#define JSCONF_US_HI #B3371A
+#define JSCONF_US_BG_FAINT #FFFCE6
+#define SHADOW_COLOR rgba(0, 0, 0, 0.25)
+#define JOKE_COLOR #aaa
+
+body {
+	font-family: Overpass, Lato, sans-serif;
+	color: JSCONF_US_FG;
+	font-feature-settings: "kern" on, "liga" on;
+	font-kerning: normal;
+}
+
+h1, h2, h3 {
+	color: JSCONF;
+}
+
+a {
+	color: JSCONF_DARKER;
+	text-decoration: none;
+}
+
+code, pre, tt {
+	font-family: CamingoCode, monoOne, monospace;
+}
+
+div.step.credits dt,
+div.step.credits dd {
+	font-size: 80%;
+}
+
+div.step.credits dd {
+	line-height: 100%;
+	font-size: 60%;
+}
+
+dt {
+	margin-top: 0.5em;
+	color: JSCONF;
+}
+
+$impress table {
+	margin: 50px auto;
+	border-top: 1px solid JSCONF_US_FG;
+	border-bottom: 1px solid JSCONF_US_FG;
+}
+
+$impress table tr:nth-child(even) td {
+	background-color: JSCONF_US_BG_FAINT;
+}
+
+$impress table th {
+	color: JSCONF_US_FG;
+	background-color: JSCONF_US_BG;
+}
+
+$impress table td {
+	border-top: 1px solid JSCONF_US_FG;
+}
+
+$impress table th,
+$impress table td {
+	padding: 0 50px;
+}
+
+$impress table.align-data-right td {
+	text-align: right;
+}
+
+$impress table.align-data-right.legend-first-column td:first-child {
+	text-align: left;
+	font-weight: bold;
+}
+
+$impress div.footnote {
+	bottom: 0;
+	font-size: 65%;
+}
+
+$impress a.footnoteref {
+	vertical-align: super;
+	font-size: 50%;
+}
+
+$impress div.footnote a.footnotereturn {
+	float: left;
+	display: block;
+	margin-right: 0.5em;
+	border-top: 1px solid JSCONF_DARKER;
+	padding-right: 70px;
+	margin-right: -60px;
+}
+
+$kloc {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+}
+
+.centerbox {
+	text-align: center;
+	color: JSCONF_US_FG;
+	background-color: JSCONF_US_BG;
+	border-radius: 7px;
+	padding: 1em;
+}
+
+#endif /* !COMMON_CSS_IN */

@@ -1,8 +1,11 @@
 #include "css.in"
 #include "fonts.css.in"
+#include "common.css.in"
 
-.fallback-message {
-	display: none;
+$hovercraft-help,
+.fallback-message,
+audio {
+	display: none !important;
 }
 
 @page land {
@@ -14,6 +17,7 @@
 	opacity: 1 !important;
 	page-break-inside: avoid;
 	page-break-after: always;
+	width: auto;
 	position: relative !important;
 	transform (none !important);
 }
@@ -25,6 +29,10 @@
 body {
 	height: auto !important;
 	overflow: visible !important;
+	font-family: Overpass, Lato, sans-serif;
+	font-feature-settings: "kern" on, "liga" on;
+	font-kerning: normal;
+	font-size: 20pt;
 }
 
 $impress {
@@ -34,3 +42,75 @@ $impress {
 	transform_origin (none !important);
 	transform (none !important);
 }
+
+.reveal {
+	opacity: 1 !important;
+}
+
+div.jslogo > div.jstext {
+	position: absolute;
+	left: 110px;
+	bottom: -15px;
+	font-family: 'Overpass', 'Futura Md BT', sans-serif;
+	line-height: 200px;
+	font-weight: bold;
+	font-size: 200px;
+}
+
+div.jslogo-right {
+	position: absolute;
+	left: 400px;
+	top: 180px;
+	font-size: 100px;
+	font-weight: bold;
+	color: #e10079;
+	line-height: 80px;
+}
+
+div.jslogo-right > div {
+	font-size: 40px;
+	font-weight: normal;
+	color: #323330;
+}
+
+div.jslogo-right > a {
+	display: block;
+	font-size: 30px;
+	line-height: 110%;
+	font-weight: normal;
+}
+
+div.jslogo.bigger {
+	height: 780px;
+	width: 780px;
+}
+
+div.jslogo.bigger > div.jstext {
+	font-size: 480px;
+	line-height: 480px;
+	left: 200px;
+	bottom: -30px;
+}
+
+div.jslogo.bigger > div.jslogo {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	border: 10px solid #fff;
+}
+
+div.jslogo.bigger > div.js-in {
+	position: absolute;
+	top: 160px;
+	left: 400px;
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	border_radius (100px);
+	background-color: rgba(255, 255, 255, 0.65);
+	color: JSCONF;
+	font-size: 170px;
+	line-height: 200px;
+	text-align: center;
+}
+
