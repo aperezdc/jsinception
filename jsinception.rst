@@ -1,5 +1,6 @@
 :title: JS: Inception
 :css: jsinception.css
+:css-print: print.css
 
 ----
 

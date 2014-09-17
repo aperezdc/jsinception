@@ -11,12 +11,13 @@
 	-o-_rulename: _contents; $$ \
 	_rulename: _contents
 
-#define transform(_text)     ADD_VENDOR_PREFIXES(transform, _text)
-#define transition(_text)    ADD_VENDOR_PREFIXES(transition, _text)
-#define border_radius(_text) ADD_VENDOR_PREFIXES(border-radius, _text)
-#define text_shadow(_text)   ADD_VENDOR_PREFIXES(text-shadow, _text)
-#define box_shadow(_text)    ADD_VENDOR_PREFIXES(box-shadow, _text)
-#define animation(_text)     ADD_VENDOR_PREFIXES(animation, _text)
+#define transform(_text)         ADD_VENDOR_PREFIXES(transform, _text)
+#define transition(_text)        ADD_VENDOR_PREFIXES(transition, _text)
+#define border_radius(_text)     ADD_VENDOR_PREFIXES(border-radius, _text)
+#define text_shadow(_text)       ADD_VENDOR_PREFIXES(text-shadow, _text)
+#define box_shadow(_text)        ADD_VENDOR_PREFIXES(box-shadow, _text)
+#define animation(_text)         ADD_VENDOR_PREFIXES(animation, _text)
+#define transform_origin(_text)  ADD_VENDOR_PREFIXES(transform-origin, _text)
 
 #define keyframes(_name, _text) \
 	@-webkit-keyframes _name { $$ _text }$$\
